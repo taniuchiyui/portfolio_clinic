@@ -1,0 +1,42 @@
+@use "../global" as global;
+@use "sass:map";
+.c-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2.24px;
+  position: relative;
+  @include global.mq("sm") {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+  }
+  &::before,
+  &::after {
+    content: "";
+    background: url(../img/icon-title-deco.svg) no-repeat center center/cover;
+    position: absolute;
+    width: 67px;
+    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    @include global.mq("sm") {
+      background: url(../img/icon-title-deco-sp.svg) no-repeat center center/cover;
+      width: 49px;
+      height: 13px;
+    }
+  }
+  &::before {
+    content: "";
+    left: -94px;
+    @include global.mq("sm") {
+      left: -65px;
+    }
+  }
+  &::after {
+    content: "";
+    right: -95px;
+    @include global.mq("sm") {
+      right: -63.5px;
+    }
+  }
+}

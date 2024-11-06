@@ -1,0 +1,650 @@
+@use "../global" as global;
+@use "sass:map";
+
+.l-footer {
+  position: relative;
+  padding-top: 32px;
+  width: 100vw;
+  overflow: hidden;
+  &::before {
+    content: "";
+    background-image: url(../img/bg-footer-wave.svg);
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position-y: center;
+    position: absolute;
+    height: 32px;
+    width: calc(100% + 64px);
+
+    top: 0;
+    left: -64px;
+    @include global.mq("xl") {
+      background-image: url(../img/bg-footer-wave.svg);
+      background-repeat: repeat-x;
+      background-size: contain;
+      background-position: left center;
+      left: 0;
+      width: 100%;
+    }
+    @include global.mq("lg") {
+      background-image: url(../img/bg-footer-wave.svg);
+      background-repeat: repeat-x;
+      background-size: contain;
+      background-position: center center;
+      left: 0;
+      width: 100%;
+    }
+  }
+}
+
+.l-footer__upper {
+  background: global.$color-bg-secondary;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 13px;
+  @include global.mq("xl") {
+    padding-top: 56px;
+  }
+  @include global.mq("lg") {
+    padding-top: 56px;
+  }
+  @include global.mq("md") {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.l-footer__upper-inner {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  background: global.$color-bg-primary;
+  border-radius: 8px;
+  @include global.mq("xl") {
+    max-width: 1000px;
+    margin-inline: auto;
+    border-radius: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 49.5px;
+    padding-right: 49px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  @include global.mq("lg") {
+    max-width: 1000px;
+    margin-inline: auto;
+    border-radius: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 49.5px;
+    padding-right: 49px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  @include global.mq("md") {
+    border-radius: 20px;
+    margin-inline: auto;
+    padding-bottom: 30px;
+  }
+}
+
+.l-footer__info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @include global.mq("md") {
+    max-width: 478px;
+    margin-inline: auto;
+  }
+}
+
+.l-footer__title {
+  display: block;
+  width: 309px;
+  text-align: center;
+  padding-top: 32px;
+  max-width: 100%;
+  @include global.mq("xl") {
+    width: 404px;
+    padding-top: 0;
+  }
+  @include global.mq("lg") {
+    width: 404px;
+    padding-top: 0;
+  }
+  @include global.mq("md") {
+    width: 404px;
+  }
+}
+
+.l-footer__address {
+  margin-top: 10.5px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+
+  @include global.mq("xl") {
+    margin-top: 6.5px;
+  }
+  @include global.mq("lg") {
+    margin-top: 6.5px;
+  }
+  span {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.l-footer__tell-area {
+  margin-top: 19px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include global.mq("xl") {
+    margin-top: 20.5px;
+  }
+  @include global.mq("lg") {
+    margin-top: 20.5px;
+  }
+  a {
+    color: global.$color-primary;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -0.64px;
+    position: relative;
+    padding-left: 33px;
+    &::before {
+      content: "";
+      background: url(../img/icon_tel.svg) no-repeat center center/cover;
+      width: 28px;
+      height: 28px;
+      position: absolute;
+      left: 1px;
+      top: 50%;
+      transform: translateY(-50%);
+      @include global.mq("xl") {
+        left: 0.5px;
+      }
+      @include global.mq("lg") {
+        left: 0.5px;
+      }
+    }
+  }
+  span {
+    margin-top: 2.85px;
+    padding-left: 1px;
+    display: block;
+    color: global.$color-primary;
+    font-size: 12px;
+    font-family: global.$ff-base;
+    font-weight: 500;
+    @include global.mq("xl") {
+      margin-top: 1px;
+      padding-left: 0;
+      margin-left: -2px;
+    }
+    @include global.mq("lg") {
+      margin-top: 1px;
+      padding-left: 0;
+      margin-left: -2px;
+    }
+  }
+}
+
+.l-footer__btn-area {
+  margin-top: 18px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  @include global.mq("xl") {
+    margin-top: 16.5px;
+    gap: 20px;
+  }
+  @include global.mq("lg") {
+    margin-top: 16.5px;
+    gap: 20px;
+  }
+}
+
+//ボタン__共通部分
+.l-footer__btn {
+  width: 150px;
+  max-width: calc((100% - 15px) / 2);
+  border-radius: 30px;
+  @include global.mq("xl") {
+    width: 220px;
+  }
+  @include global.mq("lg") {
+    width: 220px;
+  }
+  @include global.mq("md") {
+    width: 220px;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    span {
+      font-weight: 400;
+      font-size: 14px;
+      @include global.mq("xl") {
+        font-size: 16px;
+        font-weight: 500;
+      }
+      @include global.mq("lg") {
+        font-size: 16px;
+        font-weight: 500;
+      }
+      @include global.mq("md") {
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+//ボタン__WEB予約
+.l-footer__btn-reserve {
+  background: global.$color-primary;
+  color: global.$color-primary-contrast;
+  border: 1px solid global.$color-primary;
+  transition: color 0.6s, background-color 0.6s;
+  &:hover {
+    background: global.$color-secondary;
+    border: 1px solid global.$color-secondary;
+  }
+
+  a {
+    padding-top: 5px;
+    padding-bottom: 6px;
+    @include global.mq("xl") {
+      padding-top: 14px;
+      padding-bottom: 12.5px;
+    }
+    @include global.mq("lg") {
+      padding-top: 14px;
+      padding-bottom: 12.5px;
+    }
+    @include global.mq("md") {
+      padding-top: 14px;
+      padding-bottom: 12.5px;
+    }
+    span {
+      padding-top: 1px;
+      padding-left: 3px;
+      @include global.mq("xl") {
+        padding-left: 3px;
+      }
+      @include global.mq("lg") {
+        padding-left: 3px;
+      }
+      @include global.mq("md") {
+        padding-left: 3px;
+      }
+    }
+  }
+}
+//ボタン__WEB予約-アイコン
+.l-footer__btn-reserve-img {
+  display: flex;
+  justify-content: center;
+  margin-left: 24px;
+  @include global.mq("xl") {
+    margin-left: 56px;
+  }
+  @include global.mq("lg") {
+    margin-left: 56px;
+  }
+  @include global.mq("md") {
+    margin-left: 56px;
+  }
+  svg {
+  }
+  path {
+    fill: currentColor;
+  }
+}
+
+//ボタン__お問い合わせ
+.l-footer__btn-contact {
+  color: global.$color-primary;
+  background: global.$color-primary-contrast;
+  border: 1px solid global.$color-primary;
+  transition: color 0.3s, background-color 0.3s;
+  @include global.mq("xl") {
+    margin-top: 1.5px;
+  }
+  @include global.mq("lg") {
+    margin-top: 1.5px;
+  }
+  @include global.mq("md") {
+    margin-top: 1.5px;
+  }
+  &:hover {
+    color: global.$color-primary-contrast;
+    background: global.$color-primary;
+  }
+  a {
+    justify-content: center;
+    gap: 8.5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    @include global.mq("xl") {
+      padding-top: 13.5px;
+      padding-bottom: 13px;
+      gap: 8.5px;
+    }
+    @include global.mq("lg") {
+      padding-top: 13.5px;
+      padding-bottom: 13px;
+      gap: 8.5px;
+    }
+    @include global.mq("md") {
+      padding-top: 13.5px;
+      padding-bottom: 13px;
+      gap: 8.5px;
+    }
+    span {
+      padding-top: 1px;
+      @include global.mq("xl") {
+        padding-top: 0;
+      }
+      @include global.mq("lg") {
+        padding-top: 0;
+      }
+      @include global.mq("md") {
+        padding-top: 0;
+      }
+    }
+  }
+}
+//ボタン__お問い合わせ-アイコン
+.l-footer__btn-contact-img {
+  color: global.$color-primary;
+  display: flex;
+  justify-content: center;
+  width: 17.5px;
+  @include global.mq("xl") {
+    width: 24px;
+  }
+  @include global.mq("lg") {
+    width: 24px;
+  }
+  @include global.mq("md") {
+    width: 24px;
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+  path {
+    stroke: currentColor;
+  }
+}
+
+.l-footer__table {
+  margin-top: 20px;
+  max-width: 100%;
+  width: 335px;
+  border-radius: 12px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  @include global.mq("xl") {
+    width: 477px;
+  }
+  @include global.mq("lg") {
+    width: 477px;
+  }
+  @include global.mq("md") {
+    width: 477px;
+  }
+}
+
+.l-footer__map {
+  margin-top: 20px;
+  width: calc(100% - 10px * 2);
+  max-width: 478px;
+  margin-left: auto;
+  margin-right: auto;
+  @include global.mq("xl") {
+    width: 385px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @include global.mq("lg") {
+    width: 385px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.l-footer__map-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+//グローバルナビゲーション
+.l-footer__lower {
+  padding-top: 58px;
+  padding-bottom: 58px;
+  background: global.$color-bg-secondary;
+  @include global.mq("xl") {
+    padding-top: 42px;
+    display: flex;
+    justify-content: center;
+  }
+  @include global.mq("lg") {
+    padding-top: 42px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.l-footer__lower-inner {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 1040px;
+  max-width: 100%;
+  justify-content: center;
+  @include global.mq("xl") {
+    flex-direction: row;
+  }
+
+  @include global.mq("lg") {
+    flex-direction: row;
+  }
+  @include global.mq("md") {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.l-footer__homelink {
+  transition: opacity 0.6s;
+  :hover {
+    opacity: 0.8;
+  }
+  span {
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+.l-footer__link {
+  display: flex;
+  gap: 14.5px;
+  flex-direction: column;
+  @include global.mq("lg") {
+    margin-left: 40px;
+  }
+  @include global.mq("xl") {
+    margin-left: 40px;
+  }
+}
+
+.l-footer__link ul {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; /* 折返し指定 */
+}
+
+.l-footer__link ul li {
+  transition: opacity 0.6s;
+  font-size: 16px;
+  font-weight: 500;
+  :hover {
+    opacity: 0.8;
+  }
+  &:nth-child(n + 5) {
+    margin-left: 20px;
+  }
+}
+
+.l-footer__link ul li a {
+  font-size: 16px;
+  position: relative;
+  padding-left: 12px;
+  font-weight: 500;
+  &::before {
+    content: "";
+    background: url(../img/Icon-footer-dropright.svg) no-repeat center center/cover;
+    position: absolute;
+    width: 6px;
+    height: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+}
+
+.l-footer__link-about {
+  margin-top: 34.5px;
+  display: flex;
+  gap: 14.5px;
+  flex-direction: column;
+  @include global.mq("xl") {
+    margin-top: 0;
+  }
+  @include global.mq("lg") {
+    margin-top: 0;
+  }
+  ul {
+    gap: 15px;
+  }
+}
+
+.l-footer__link-staff {
+  margin-top: 35px;
+  display: flex;
+  gap: 14.5px;
+  flex-direction: column;
+  @include global.mq("xl") {
+    margin-top: 0;
+  }
+  @include global.mq("lg") {
+    margin-top: 0;
+  }
+  ul {
+    gap: 14.5px;
+  }
+}
+
+.l-footer__link-medical {
+  margin-top: 35.5px;
+  display: flex;
+  @include global.mq("xl") {
+    margin-top: 0;
+  }
+  @include global.mq("lg") {
+    margin-top: 0;
+  }
+}
+
+.l-footer__medical-inner {
+}
+
+.l-footer__medical-inner ul {
+  row-gap: 14.5px;
+  height: 152px;
+  &:has(> :nth-child(n + 5)) {
+    width: 225px;
+  }
+}
+
+.l-footer__medical-inner li {
+  flex-grow: 0;
+  height: calc((100% - 14.5px * 3) / 4);
+
+}
+
+.l-footer__medical-inner a {
+}
+
+.l-footer__link-contact {
+  margin-top: 35px;
+  @include global.mq("xl") {
+    margin-top: 0;
+  }
+  @include global.mq("lg") {
+    margin-top: 0;
+  }
+  ul {
+    gap: 16px;
+  }
+}
+
+.l-footer__link-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.l-footer__copyright {
+  padding-top: 17.5px;
+  padding-bottom: 71px;
+  background: global.$color-primary;
+  color: global.$color-primary-contrast;
+  @include global.mq("xl") {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: -3px;
+  }
+  @include global.mq("lg") {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: -3px;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+  }
+}
+
+/* Firefox */
+@-moz-document url-prefix() {
+  .l-footer__link ul:has(> :nth-child(n + 5)) {
+    width: 225px;
+  }
+  .l-footer__medical-inner ul {
+    row-gap: 13.5px;
+  }
+}

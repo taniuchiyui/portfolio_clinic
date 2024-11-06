@@ -1,0 +1,43 @@
+@use "../global" as global;
+@use "sass:map";
+.p-contact-thanks {
+    padding-bottom: 161px;
+    @include global.mq("sm") {
+      padding-bottom: 101px;
+    }
+}
+/*----------------------------------
+p-contact
+-----------------------------------*/
+.p-contact-thanks-main {
+}
+
+.p-contact-thanks__inner {
+}
+
+.p-contact-thanks__item {
+  margin-top: 78.5px;
+  @include global.mq("sm") {
+    margin-top: 59px;
+  }
+}
+
+.p-contact-thanks__intro {
+  width: 770px;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+
+  span {
+    color: global.$color-accent;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
+

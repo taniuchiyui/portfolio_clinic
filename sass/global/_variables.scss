@@ -1,0 +1,92 @@
+//色
+
+/*----------------------------------
+テキストカラー
+-----------------------------------*/
+$color-text-primary: #393939; /* 本文のテキスト用 */
+$color-text-secondary: #ffffff; /* 本文のテキスト用 */
+$color-text-tertiary: #1391e6; /* 本文のテキスト用 */
+
+/*----------------------------------
+カラー
+-----------------------------------*/
+/* メインカラー */
+$color-primary: #1391e6;
+$color-primary-rgb: rgba(19, 145, 230, 0.2);
+$color-primary-contrast: #ffffff;
+$color-primary-contrast-rgb: rgba(255, 255, 255, 0.2);
+
+/* サブカラー-01 */
+$color-secondary: #0060a0;
+$color-secondary-rgb: rgba(0, 96, 160, 0.2);
+$color-secondary-contrast: #ffffff;
+$color-secondary-contrast-rgb: rgba(255, 255, 255, 0.2);
+
+/* サブカラー-02 */
+$color-tertiary: #dff1fd;
+$color-tertiary-rgb: rgba(223, 241, 253, 0.2);
+$color-tertiary-contrast: #ffffff;
+$color-tertiary-contrast-rgb: rgba(255, 255, 255, 0.2);
+
+/* アクセントカラー */
+$color-accent: #ee5a6d;
+$color-accent-rgb: rgba(238, 90, 109, 0.2);
+$color-accent-contrast: #ffffff;
+$color-accent-contrast-rgb: rgba(255, 255, 255, 0.2);
+
+/* 背景色メインカラー*/
+$color-bg-primary: #ffffff;
+$color-bg-primary-rgb:  rgba(255, 255, 255, 0.2);
+
+/* 背景色サブカラー*/
+$color-bg-secondary: #dff1fd;
+$color-bg-secondary-rgb: rgba(223, 241, 253, 0.2);
+
+/* 背景色アクセントカラー*/
+$color-bg-accent:  #ee5a6d;
+$color-bg-accent-rgb: rgba(238, 90, 109, 0.2);
+
+
+//利用する時は以下のようにします。
+//button.primary {
+//   background: rgba(var(--color-primary-rgb), 0.9); // 不透明度90%
+//   color: var(--color-primary-contrast);
+// }
+
+//フォント
+$ff-base: "M PLUS Rounded 1c", sans-serif; //日本語、英語標準
+$fz-base: 14px; //ベースフォントサイズ
+$fw-base: 500; //ベースフォントウェイト
+$lh-base: 1.71; //ベース行間
+
+//レイアウト
+$inner-width: 1200px; //PCinner
+$sm-width: 768px; //スマホサイズ
+$lg-width: 1000px; //スマホサイズ
+
+// ブレークポイント
+$breakpoints: (
+  "sm": "(width < #{$sm-width})",
+  "md": "(#{$sm-width} <= width < #{$lg-width})",
+  "lg": "(#{$lg-width} <= width < #{$inner-width})",
+  "xl": "(width >= #{$inner-width})"
+);
+
+//重なり順の定義
+$layer: (
+  //ローディング
+  loading: 300,
+  //モーダル
+  modal: 100,
+  //ドロワー
+  drawer: 40,
+  //フローティング
+  floating: 30,
+  //ヘッダー
+  header: 20,
+  //フッター
+  footer: 10,
+  default: 1,
+  pseudo:-1
+  //疑似要素（背景画像）
+);

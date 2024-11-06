@@ -1,0 +1,585 @@
+@use "../global" as global;
+@use "sass:map";
+.p-medical{
+  padding-bottom: 160px;
+  @include global.mq("sm") {
+    padding-bottom: 103px;
+  }
+}
+
+
+/*----------------------------------
+MV
+-----------------------------------*/
+.p-medical-mv {
+  position: relative;
+  margin-top: 40px;
+  @include global.mq("sm") {
+    margin-top: 20px;
+  }
+}
+
+.p-medical-mv__inner {
+  position: relative;
+  padding-left: 60px;
+  padding-right: 60px;
+  margin-inline: auto;
+  z-index: map.get(global.$layer, "default");
+  @include global.mq("md") {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @include global.mq("sm") {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.p-medical-mv_heading {
+  z-index: calc(map.get(global.$layer, "default") + 1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: -1px;
+  @include global.mq("sm") {
+    margin-top: 0.5px;
+  }
+}
+
+.p-medical-mv__heading-inline-ja {
+  color: global.$color-text-secondary;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 3.2px;
+  display: block;
+  padding-left: 3.5px;
+  @include global.mq("sm") {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 4.8px;
+    padding-left: 6px;
+  }
+}
+
+.p-medical-mv__heading-inline-en {
+  color: global.$color-text-secondary;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.4px;
+  display: block;
+  margin-top: 17px;
+  padding-left: 2.5px;
+  @include global.mq("sm") {
+    margin-top: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.2px;
+  }
+}
+
+.p-medical-mv__img {
+  border-radius: 12px;
+  z-index: map.get(global.$layer, "default");
+  overflow: hidden;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2); /* マスクの色(黒の50%) */
+    width: 100%;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: background-color 0.6s ease; /* ゆっくりopacityのみへ変化させる */
+    z-index: calc(map.get(global.$layer, "default") + 2);
+    border-radius: 12px;
+  }
+}
+/*----------------------------------
+パンくず
+-----------------------------------*/
+.c-breadcrumbs__p-medical {
+  @include global.mq("sm") {
+    padding-top: 1.5px;
+  }
+}
+
+/*----------------------------------
+ページ内リンク
+-----------------------------------*/
+.p-medical-nav__wrap {
+  margin-top: 80px;
+  padding-left: 62px;
+  padding-right: 62px;
+  @include global.mq("sm") {
+    margin-top: 59.5px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.p-medical-nav__item {
+  &:not(:first-child) {
+    margin-top: 78px;
+    @include global.mq("sm") {
+      margin-top: 81px;
+    }
+  }
+}
+
+.p-medical-nav__title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  @include global.mq("sm") {
+    gap: 22.5px;
+  }
+}
+
+.p-medical-nav__title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2.24px;
+  text-align: center;
+  display: inline;
+  @include global.mq("sm") {
+    font-size: 20px;
+    letter-spacing: 1.6px;
+  }
+}
+
+.p-medical-nav__subtitle {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.12px;
+  text-align: center;
+  background: global.$color-primary;
+  color: global.$color-primary-contrast;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: 12px;
+  padding-left: 12px;
+  display: inline;
+  border-radius: 24px;
+  margin-bottom: 2px;
+  @include global.mq("sm") {
+    margin-bottom: 0;
+  }
+}
+.p-medical-nav__subtitle-accent {
+  background: global.$color-bg-accent;
+  @include global.mq("sm") {
+    padding-top: 6px;
+    padding-bottom: 7.5px;
+  }
+}
+
+.p-medical-nav__lists {
+  margin-top: 31px;
+  display: flex;
+  gap: 16.4px;
+  flex-wrap: wrap;
+  @include global.mq("sm") {
+    flex-direction: column;
+    margin-top: 32px;
+    gap: 17.2px;
+  }
+}
+
+.p-medical-nav__list {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    aspect-ratio: 1;
+    border-right: 2px solid global.$color-primary;
+    border-bottom: 2px solid global.$color-primary;
+    rotate: (45deg);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    //配置, 回転
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+    .p-medical-nav__btn {
+      background-color: global.$color-bg-secondary;
+    }
+    .p-medical-nav__btn-text {
+      translate: 0 -10px;
+    }
+  }
+}
+
+.p-medical-nav__btn {
+  border-radius: 12px;
+  border: 2px solid global.$color-primary;
+  background: global.$color-primary-contrast;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  @include global.mq("sm") {
+    border: 1px solid global.$color-primary;
+  }
+}
+
+.p-medical-nav__btn-text {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 29px;
+  padding-right: 29px;
+  display: inline-block;
+  color: global.$color-primary;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.92px;
+  transition: translate 0.3s ease;
+  @include global.mq("sm") {
+    padding-top: 15px;
+    padding-bottom: 12.5px;
+    font-size: 20px;
+    letter-spacing: 1.6px;
+    padding-left: 31px;
+  }
+}
+
+/*----------------------------------
+    medical-main-general
+-----------------------------------*/
+
+.p-medical-main {
+  margin-top: 157px;
+  @include global.mq("sm") {
+    margin-top: 100px;
+  }
+  &:first-of-type {
+    margin-top: 160px;
+    @include global.mq("sm") {
+      margin-top: 101px;
+    }
+  }
+}
+
+.p-medical-main__inner {
+}
+
+.p-medical-main__decoration-top {
+  position: relative;
+  height: 15.9375vw;
+  @include global.mq("sm") {
+    height: 23.466666vw;
+  }
+}
+
+.p-medical-main__decoration-top-left {
+  width: 9.84375vw;
+  height: 10.7813vw;
+  position: absolute;
+  left: 22px;
+  top: 11px;
+  @include global.mq("sm") {
+    width: 12.8333vw;
+    left: 6.5px;
+    top: 12px;
+  }
+}
+
+.p-medical-main__decoration-top-center {
+  position: absolute;
+  width: 7.8125vw;
+  left: 50%;
+  transform: translateX(-48%);
+  @include global.mq("sm") {
+    width: 11.733333vw;
+    top: 7px;
+    transform: translateX(-50%);
+  }
+}
+
+.p-medical-main__decoration-top-right {
+  position: absolute;
+  width: 4.5313vw;
+  right: 38px;
+  top: 63px;
+  @include global.mq("md") {
+    right: 10px;
+  }
+  @include global.mq("sm") {
+    width: 6.366666vw;
+    right: 12px;
+    top: 36.5px;
+  }
+}
+
+.p-medical-main__decoration-bg {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 8.359375vw;
+  background: url(../img/bg-upper-pc.png) no-repeat center center / cover;
+  @include global.mq("sm") {
+    height: 9.06666vw;
+    background: url(../img/bg-upper-sp.png) no-repeat center center/cover;
+  }
+}
+
+.p-medical-main__content {
+  background: global.$color-bg-secondary;
+  padding-bottom: 85px;
+  @include global.mq("sm") {
+    padding-bottom: 62px;
+  }
+}
+
+.p-medical-main__title {
+  display: flex;
+  justify-content: center;
+  padding-left: 1px;
+  margin-top: -7px;
+  @include global.mq("sm") {
+    padding-left: 0;
+    padding-top: 26px;
+    margin-top: 0;
+  }
+}
+
+.p-medical-main__items {
+  margin-top: 55px;
+  width: 1000px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 39px;
+  @include global.mq("lg") {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @include global.mq("md") {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @include global.mq("sm") {
+    margin-top: 36px;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 40px;
+  }
+}
+
+.p-medical-main__item {
+  border-radius: 20px;
+  background: global.$color-bg-primary;
+  padding-top: 61.5px;
+  padding-bottom: 61px;
+  padding-left: 60px;
+  padding-right: 60px;
+  position: relative;
+  @include global.mq("sm") {
+    padding-top: 21px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100px;
+    height: 80px;
+    background: url(../img/img-medical-ribbon-genelal.png) no-repeat center center/cover;
+    top: 0;
+    right: 60px;
+    @include global.mq("sm") {
+      right: 20px;
+      width: 80px;
+      height: 60px;
+      background: url(../img/img-medical-ribbon-genelal-sp.png) no-repeat center center/cover;
+    }
+  }
+}
+
+.p-medical-main__head {
+  display: flex;
+  gap: 38px;
+  align-items: center;
+  padding-bottom: 36px;
+  position: relative;
+  @include global.mq("sm") {
+    flex-direction: column;
+    align-items: start;
+    gap: 18px;
+    padding-bottom: 20px;
+  }
+  &::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #c2c2c2;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.p-medical-main__heading {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2.14px;
+  @include global.mq("sm") {
+    font-size: 20px;
+    letter-spacing: 1.6px;
+  }
+}
+
+.p-medical-main__subheading {
+  color: global.$color-primary;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.12px;
+}
+
+.p-medical-main__body {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  @include global.mq("sm") {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16.5px;
+  }
+}
+
+.p-medical-main__text {
+  padding-right: 1px;
+  p {
+    white-space: pre-wrap;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+    // &:not(:first-child) {
+    //   margin-top: 24px;
+    // }
+  }
+}
+
+.p-medical-main__img {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.p-medical-main__decoration-bottom {
+  position: relative;
+  height: 7.578125vw;
+  // background-image: linear-gradient(global.$color-bg-secondary 82px, transparent 82px);
+  z-index: map.get(global.$layer, "default");
+  &::after {
+    content: "";
+    width: 1280px;
+    width: 100%;
+    height: 7.578125vw;
+    background: url(../img/bg-bottom-pc.png) no-repeat center center/cover;
+    position: absolute;
+    // bottom: -82px;
+    bottom: 0;
+    z-index: map.get(global.$layer, "default");
+    @include global.mq("sm") {
+      background: url(../img/bg-bottom-sp.png) no-repeat center center/cover;
+      // bottom: -28.5px;
+    }
+  }
+}
+
+.p-medical-main__decoration-bottom-left {
+  z-index: calc(map.get(global.$layer, "default") + 1);
+  width: 57px;
+  height: 56px;
+  position: absolute;
+  left: 40px;
+  top: -59px;
+  @include global.mq("sm") {
+    width: 24px;
+    height: 25px;
+    left: 12px;
+    top: -24px;
+  }
+}
+
+.p-medical-main__decoration-bottom-right {
+  z-index: calc(map.get(global.$layer, "default") + 1);
+  width: 125.307px;
+  height: 138px;
+  right: 20.45px;
+  position: absolute;
+  top: -118px;
+  @include global.mq("sm") {
+    width: 53px;
+    height: 60px;
+    top: -40px;
+    right: 8px;
+  }
+}
+
+/*----------------------------------
+    medical-main-self-funded
+-----------------------------------*/
+
+.p-medical-main-self-funded {
+  .p-medical-main__item {
+    @include global.mq("sm") {
+      padding-bottom: 19px;
+    }
+  }
+
+  .p-medical-main__title {
+    padding-left: 5px;
+    margin-top: -6px;
+    @include global.mq("sm") {
+      margin-top: -0.5px;
+      padding-left: 1px;
+    }
+  }
+
+  .p-medical-main__item {
+    &::after {
+      background: url(../img/img-medical-ribbon-self-funded.png) no-repeat center center/cover;
+      @include global.mq("sm") {
+        background: url(../img/img-medical-ribbon-self-funded-sp.png) no-repeat center center/cover;
+        top: 0;
+      }
+    }
+    @include global.mq("sm") {
+      .p-medical-main__head {
+        gap: 20px;
+      }
+    }
+  }
+}

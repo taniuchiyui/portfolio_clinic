@@ -1,0 +1,102 @@
+@use "../global" as global;
+@use "sass:map";
+
+
+.p-mv {
+  position: relative;
+  margin-top: 40px;
+  @include global.mq("sm") {
+    margin-top: 20px;
+  }
+}
+
+.p-mv__inner {
+  position: relative;
+  padding-left: 60px;
+  padding-right: 60px;
+  margin-inline: auto;
+  z-index: map.get(global.$layer, "default");
+  @include global.mq("md") {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @include global.mq("sm") {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.p-mv__heading {
+  z-index: calc(map.get(global.$layer, "default") + 1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: -1px;
+  width: 100%;
+  @include global.mq("sm") {
+    margin-top: 0.5px;
+  }
+}
+
+.p-mv__heading-inline-ja {
+  color: global.$color-text-secondary;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 3.2px;
+  display: block;
+  padding-left: 3.5px;
+  @include global.mq("sm") {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 4.8px;
+    padding-left: 6px;
+  }
+}
+
+.p-mv__heading-inline-en {
+  color: global.$color-text-secondary;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.4px;
+  display: block;
+  margin-top: 17px;
+  padding-left: 2.5px;
+  @include global.mq("sm") {
+    margin-top: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.2px;
+  }
+}
+
+.p-mv__img {
+  border-radius: 12px;
+  z-index: map.get(global.$layer, "default");
+  overflow: hidden;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2); /* マスクの色(黒の50%) */
+    width: 100%;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: background-color 0.6s ease; /* ゆっくりopacityのみへ変化させる */
+    z-index: calc(map.get(global.$layer, "default") + 2);
+    border-radius: 12px;
+    @include global.mq("sm") {
+    border-radius: 19px;
+    }
+  }
+}

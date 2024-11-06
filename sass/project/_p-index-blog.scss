@@ -1,0 +1,318 @@
+@use "../global" as global;
+@use "sass:map";
+
+.p-index-blog {
+  margin-top: 156px;
+  padding-bottom: 160px;
+  @include global.mq("sm") {
+    margin-top: 98.5px;
+    padding-bottom: 100px;
+  }
+}
+
+.p-index-blog__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.p-index-blog__title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2.24px;
+  @include global.mq("sm") {
+    padding-left: 2px;
+  }
+  .c-title {
+    &::before,
+    &::after {
+      @include global.mq("sm") {
+        top: calc(50% - 2px);
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+.p-index-blog__cards {
+  margin-top: 76px;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 50px;
+  row-gap: 62px;
+  width: 1000px;
+  max-width: 100%;
+  @include global.mq("md") {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @include global.mq("sm") {
+    max-width: 100%;
+    width: 640px;
+    margin-top: 44px;
+    padding-left: 20px;
+    padding-right: 20px;
+    grid-template-columns: none;
+    row-gap: 20px;
+    flex-direction: column;
+  }
+}
+
+.p-index-blog__card {
+  border-radius: 20px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  background: global.$color-bg-primary;
+  max-width: calc((100% - 50px *2)/3);
+  cursor: pointer;
+  @include global.mq("md") {
+     max-width: calc((100% - 50px *1)/2);
+  }
+  @include global.mq("sm") {
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
+  }
+}
+
+.p-index-blog__card :hover {
+  .p-index-blog__card-thumbnail {
+    img {
+      transform: scale(1.1);
+    }
+  }
+  .p-index-blog__card-title {
+    color: global.$color-primary;
+  }
+}
+
+.p-index-blog__link {
+  position: relative;
+  z-index: map.get(global.$layer, "default");
+  @include global.mq("sm") {
+    display: grid;
+    grid-template-columns: 1fr 1.518796fr;
+  }
+}
+
+.p-index-blog__card-tag {
+  position: absolute;
+  background-color: global.$color-accent;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -20px;
+  left: -10px;
+  z-index: calc(map.get(global.$layer, "default") + 1);
+  opacity: 0; //初期は非表示
+  @include global.mq("sm") {
+    width: 40px;
+    height: 40px;
+    top: -8px;
+    left: -8px;
+  }
+}
+
+.p-index-blog__card-tag-new {
+  opacity: 1;
+}
+
+.p-index-blog__tag-text {
+  color: global.$color-text-secondary;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  @include global.mq("sm") {
+    font-size: 10px;
+    line-height: normal;
+  }
+}
+
+.p-index-blog__card-thumbnail {
+  height: 188px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: center;
+  @include global.mq("md") {
+    width: 100%;
+  }
+  @include global.mq("sm") {
+    height: 101px;
+    border-radius: 0;
+  }
+  img {
+    transition: transform 0.6s ease;
+    height: 100%;
+    object-fit: cover;
+
+    @include global.mq("sm") {
+      object-fit: cover;
+    }
+  }
+}
+
+.p-index-blog__card-body {
+  position: relative;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 6px;
+  @include global.mq("sm") {
+    padding: 0;
+    padding-left: 10px;
+  }
+}
+.p-index-blog__card-category {
+  background: global.$color-primary;
+  display: inline-block;
+  padding-top: 1px;
+  padding-bottom: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 14px;
+  position: absolute;
+  top: -13.5px;
+  @include global.mq("sm") {
+    top: 6px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 10px;
+    line-height: 1;
+  }
+}
+
+.p-index-blog__cat-text {
+  color: global.$color-primary-contrast;
+  font-size: 11px;
+  font-weight: 500;
+  @include global.mq("sm") {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
+.p-index-blog__card-textbox {
+  padding-top: 23px;
+  @include global.mq("sm") {
+    padding-top: 30px;
+  }
+}
+
+.p-index-blog__card-title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  transition: color 0.6s ease;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  /* ブラウザがサポートしていない場合のフェールセーフ */
+  @include global.mq("sm") {
+    font-size: 14px;
+    line-height: 20px;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.p-index-blog__card-date {
+  margin-top: 4px;
+  color: #888;
+  font-size: 11px;
+  font-weight: 500;
+  @include global.mq("sm") {
+    display: block;
+    margin-top: 5px;
+  }
+}
+
+.p-index-blog__btn {
+  margin-top: 63px;
+  border-radius: 24px;
+  border: 1px solid global.$color-primary;
+  background: global.$color-primary-contrast;
+  position: relative;
+  transition: color 0.6s, background-color 0.6s;
+
+   &::before,
+  &::after {
+    background-repeat: no-repeat;
+    background-size: contain;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "";
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    @include global.mq("sm") {
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &::before {
+    background: url(../img/icon-arrow-right-blue.svg) no-repeat center center/cover;
+    transition: opacity 0.6s;
+  }
+  &::after {
+    background: url(../img/icon-arrow-right-white.svg) no-repeat center center/cover;
+    opacity: 0;
+    transition: right 0.6s, opacity 0.6s;
+  }
+  &:hover {
+    color: global.$color-primary;
+    &::before {
+      opacity: 0;
+    }
+    &::after {
+      opacity: 1;
+      right: 4px;
+    }
+  }
+  @include global.mq("sm") {
+    margin-top: 40px;
+  }
+  &:hover {
+    background: global.$color-primary;
+    .p-index-blog__btn-link {
+      color: global.$color-primary-contrast;
+    }
+  }
+}
+
+.p-index-blog__btn-link {
+  color: global.$color-primary;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  position: relative;
+ 
+  span {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    padding-top: 9px;
+    padding-bottom: 10px;
+    padding-left: 45px;
+    padding-right: 46px;
+    @include global.mq("sm") {
+      padding-top: 8px;
+      padding-bottom: 7.5px;
+      padding-left: 39px;
+      padding-right: 39px;
+    }
+  }
+}
+

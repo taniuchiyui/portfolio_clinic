@@ -1,0 +1,45 @@
+@use "../global" as global;
+@use "sass:map";
+
+
+.page-reservation-thanks{
+  padding-bottom: 160px;
+  @include global.mq("sm") {
+    padding-bottom: 101px;
+  }
+}
+/*----------------------------------
+p-reservation
+-----------------------------------*/
+.p-reservation-thanks-main {
+}
+
+.p-reservation-thanks__inner {
+}
+
+.p-reservation-thanks__item {
+  margin-top: 78.5px;
+  @include global.mq("sm") {
+    margin-top: 59px;
+  }
+}
+
+.p-reservation-thanks__intro {
+  width: 770px;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+
+  span {
+    color: global.$color-accent;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
+

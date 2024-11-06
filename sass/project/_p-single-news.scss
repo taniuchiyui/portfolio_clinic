@@ -1,0 +1,9 @@
+@use "../global" as global;
+@use "sass:map";
+
+.c-breadcrumbs .news-category {
+display: none;
+&::after {
+    content: 'none';
+}
+}

@@ -1,0 +1,339 @@
+@use "../global" as global;
+@use "sass:map";
+
+.p-index-medical {
+  margin-top: 135px;
+  @include global.mq("sm") {
+    margin-top: 97px;
+  }
+}
+
+.p-index-medical__inner {
+}
+
+.p-index-medical__decoration-top {
+  position: relative;
+  height: 15.9375vw;
+  @include global.mq("sm") {
+    height: 23.466666vw;
+  }
+}
+
+.p-index-medical__decoration-top-left {
+  width: 9.84375vw;
+  height: 10.7813vw;
+  position: absolute;
+  left: 23px;
+  top: 9px;
+  @include global.mq("sm") {
+    width: 13.2333vw;
+    left: 6px;
+    top: 10px;
+  }
+}
+
+.p-index-medical__decoration-top-center {
+  position: absolute;
+  width: 7.8125vw;
+  left: 50%;
+  transform: translateX(-50%);
+  @include global.mq("sm") {
+    width: 11.733333vw;
+    top: 8px;
+  }
+}
+
+.p-index-medical__decoration-top-right {
+  position: absolute;
+  width: 4.5313vw;
+  right: 38px;
+  top: 63px;
+  @include global.mq("md") {
+    right: 10px;
+  }
+  @include global.mq("sm") {
+    width: 6.366666vw;
+    right: 12px;
+    top: 36.5px;
+  }
+}
+
+.p-index-medical__decoration-bg {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 8.359375vw;
+  background: url(../img/bg-upper-pc.png) no-repeat center center / cover;
+  @include global.mq("sm") {
+    height: 9.06666vw;
+    background: url(../img/bg-upper-sp.png) no-repeat center center/cover;
+  }
+}
+
+.p-index-medical__main {
+  margin-top: -6px;
+  background: global.$color-bg-secondary;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  z-index: map.get(global.$layer, "default");
+  padding-bottom: 83px;
+  @include global.mq("sm") {
+    padding-top: 33px;
+    padding-bottom: 61px;
+  }
+}
+
+.p-index-medical__title {
+  display: flex;
+  justify-content: center;
+  padding-left: 2px;
+  @include global.mq("sm") {
+    padding-left: 3px;
+  }
+}
+
+.c-title {
+}
+
+.p-index-medical__items {
+  margin-top: 56.5px;
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  width: 1000px;
+  max-width: 100%;
+  @include global.mq("md") {
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 40px;
+  }
+  @include global.mq("sm") {
+    margin-top: 36.5px;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 20px;
+  }
+}
+
+.p-index-medical__item {
+  width: 100%;
+  height: 290px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 20px;
+  z-index: map.get(global.$layer, "default");
+  @include global.mq("sm") {
+    height: 210px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2); /* マスクの色(黒の50%) */
+    width: 100%;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: background-color 0.6s ease; /* ゆっくりopacityのみへ変化させる */
+    z-index: calc(map.get(global.$layer, "default") + 2);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: calc(100% - 7px * 2);
+    height: calc(100% - 7px * 2);
+    border-radius: 20px;
+    border: 2px solid global.$color-text-secondary;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: calc(map.get(global.$layer, "default") + 2);
+    opacity: 0; /* 最初は透明（非表示） */
+    transition: opacity 0.6s ease; /* ゆっくりopacityのみへ変化させる */
+  }
+  &:hover {
+    &::before {
+      background: rgba(0, 0, 0, 0.4);
+    }
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.p-index-medical__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 37px;
+  padding-left: 3px;
+}
+
+.p-index-medical__panel02 {
+  margin-top: -1px;
+}
+
+.p-index-medical__panel-head {
+  color: global.$color-text-secondary;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2.24px;
+  z-index: calc(map.get(global.$layer, "default") + 3);
+  position: relative;
+  @include global.mq("sm") {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+  }
+  &::after {
+    content: "";
+    width: 40px;
+    height: 2px;
+    background: global.$color-bg-primary;
+    position: absolute;
+    left: calc(50% - 1.5px);
+    transform: translateX(-50%);
+    bottom: -18px;
+    @include global.mq("sm") {
+      width: 30px;
+    }
+  }
+}
+
+.p-index-medical__panel-text {
+  color: global.$color-text-secondary;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.28px;
+  z-index: calc(map.get(global.$layer, "default") + 2);
+  line-height: 28px; /* 175% */
+  @include global.mq("sm") {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.96px;
+    line-height: 19px; /* 158.333% */
+  }
+}
+
+.p-index-medical__bg-img {
+  border-radius: 20px;
+  width: 100%;
+  height: 290px;
+  position: absolute;
+  top: 0;
+  z-index: calc(map.get(global.$layer, "default") + 1);
+  transition: transform 0.6s ease;
+  @include global.mq("sm") {
+    height: 210px;
+  }
+}
+
+.p-index-medical__item:hover .p-index-medical__bg-img {
+  transform: scale(1.1);
+}
+
+.p-index-medical__bg-img01 {
+  background: url(../img/img-top-medical__item01.png) no-repeat center center/cover;
+}
+.p-index-medical__bg-img02 {
+  background: url(../img/img-top-medical__item02.png) no-repeat center center/cover;
+}
+
+.p-index-medical__description-box {
+  margin-top: 60px;
+  width: 1000px;
+  max-width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  background: global.$color-bg-primary;
+  @include global.mq("md") {
+    width: calc(100% - 20px * 2);
+  }
+  @include global.mq("sm") {
+    width: calc(100% - 20px * 2);
+    margin-top: 21px;
+  }
+}
+
+.p-index-medical__text {
+  width: 100%;
+  padding-top: 36px;
+  padding-bottom: 35px;
+  padding-left: 41px;
+  padding-right: 40px;
+  line-height: 28px; /* 200% */
+  font-weight: 500;
+  font-size: 14px;
+  @include global.mq("sm") {
+    padding-top: 17.5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 17.5px;
+    line-height: 24px; /* 171.429% */
+  }
+  span {
+    color: #ee5a6d;
+    line-height: 28px; /* 200% */
+    @include global.mq("sm") {
+      line-height: 24px; /* 171.429% */
+    }
+  }
+}
+
+.p-index-medical__decoration-bottom {
+  position: relative;
+  background: global.$color-bg-primary;
+  height: 7.578125vw;
+
+  // background-image: linear-gradient(global.$color-bg-secondary 97px, transparent 97px);
+  z-index: map.get(global.$layer, "default");
+  &::after {
+    content: "";
+    width: 1280px;
+    width: 100%;
+    height: 7.578125vw;
+    background: url(../img/bg-bottom-pc.png) no-repeat center center/cover;
+    position: absolute;
+    bottom: 0;
+    z-index: map.get(global.$layer, "default");
+  }
+}
+
+.p-index-medical__decoration-bottom-left {
+  z-index: calc(map.get(global.$layer, "default") + 1);
+  width: 57px;
+  height: 56px;
+  position: absolute;
+  left: 40px;
+  top: -59px;
+  @include global.mq("sm") {
+    width: 24px;
+    height: 25px;
+    left: 12px;
+    top: -37px;
+  }
+}
+
+.p-index-medical__decoration-bottom-right {
+  z-index: calc(map.get(global.$layer, "default") + 1);
+  width: 125.307px;
+  height: 138px;
+  right: 20.45px;
+  position: absolute;
+  top: -117px;
+  @include global.mq("sm") {
+    width: 53px;
+    height: 60px;
+    top: -52.5px;
+    right: 8px;
+  }
+}

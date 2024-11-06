@@ -1,0 +1,17 @@
+@use "../global" as global;
+
+.l-inner {
+  width: global.$inner-width;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include global.mq("xl") {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @include global.mq("lg") {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

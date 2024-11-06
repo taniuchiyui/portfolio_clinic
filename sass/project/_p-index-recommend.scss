@@ -1,0 +1,117 @@
+@use "../global" as global;
+@use "sass:map";
+
+.p-index-recommend {
+  margin-top: 223px;
+  @include global.mq("sm") {
+    margin-top: 96.5px;
+  }
+}
+
+.p-index-recommend__inner {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.p-index-recommend__title {
+  display: flex;
+  justify-content: center;
+  padding-left: 2px;
+}
+
+
+
+.p-index-recommend__items {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 56px;
+  width: 966px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  @include global.mq("sm") {
+    margin-top: 35px;
+    flex-direction: column;
+    align-items: center;
+    gap: 57px;
+  }
+}
+
+.p-index-recommend__item {
+  width: calc((100% - 60px * 2) / 3);
+  @include global.mq("sm") {
+    width: 100%;
+    max-width: 281px;
+  }
+}
+
+.p-index-recommend__imgbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.p-index-recommend__heading-img {
+  width: 182px;
+  max-width: 100%;
+}
+
+.p-index-recommend__item:nth-of-type(1) .p-index-recommend__heading-img {
+  width: 177px;
+  height: 33px;
+}
+
+.p-index-recommend__img {
+  margin-top: 15px;
+  width: 275px;
+  max-width: 100%;
+  @include global.mq("sm") {
+    margin-top: 10px;
+    width: 276px;
+  }
+}
+
+.p-index-recommend__item:nth-of-type(2) .p-index-recommend__img {
+  @include global.mq("sm") {
+    margin-top: 11.5px;
+  }
+}
+.p-index-recommend__item:nth-of-type(3) .p-index-recommend__img {
+  @include global.mq("sm") {
+    margin-top: 12.5px;
+  }
+}
+
+
+.p-index-recommend__text {
+  margin-top: 19px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  @include global.mq("sm") {
+    margin-top: 20px;
+  }
+  span {
+    color: global.$color-accent;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
+
+.p-index-recommend__item:nth-of-type(2) .p-index-recommend__text {
+  margin-left: -1px;
+  @include global.mq("sm") {
+    margin-top: 19.5px;
+  }
+}
+
+.p-index-recommend__item:nth-of-type(3) .p-index-recommend__text {
+    margin-top: 19px;
+  margin-left: 1px;
+  @include global.mq("sm") {
+    margin-top: 17.5px;
+  }
+}

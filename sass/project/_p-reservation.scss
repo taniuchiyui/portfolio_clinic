@@ -1,0 +1,701 @@
+@use "../global" as global;
+@use "sass:map";
+
+.p-reservation {
+  padding-bottom: 136px;
+  @include global.mq("sm") {
+    padding-bottom: 101px;
+  }
+}
+/*----------------------------------
+   p-reservation
+-----------------------------------*/
+
+.p-reservation-main {
+  width: 768px;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.p-reservation-inner {
+}
+
+/*----------------------------------
+    intro
+-----------------------------------*/
+.p-reservation-info-area {
+  margin-top: 80px;
+  @include global.mq("sm") {
+    margin-top: 61px;
+  }
+}
+
+.p-reservation-info__inner {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+  @include global.mq("sm") {
+    gap: 41px;
+  }
+}
+
+.p-reservation-info__item {
+}
+
+.p-reservation-info__title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2.24px;
+  @include global.mq("sm") {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.6px;
+  }
+}
+
+.p-reservation-info__tel {
+  margin-top: 24px;
+  @include global.mq("sm") {
+    margin-top: 19.5px;
+  }
+  a {
+    color: global.$color-primary;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.64px;
+    pointer-events: none;
+    position: relative;
+    padding-left: 32px;
+    @include global.mq("sm") {
+      padding-left: 31px;
+    }
+
+    &::before {
+      content: "";
+      width: 28px;
+      height: 28px;
+      background: url(../img/icon_tel.svg) no-repeat center center/cover;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
+  span {
+    margin-top: -4px;
+    margin-left: 45px;
+    display: block;
+    color: global.$color-primary;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: normal;
+    @include global.mq("sm") {
+      margin-left: 44px;
+    }
+  }
+}
+
+.p-reservation-info__text {
+  margin-top: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+  @include global.mq("sm") {
+    margin-top: 19px;
+  }
+}
+
+/*----------------------------------
+    form
+-----------------------------------*/
+.p-reservation-form {
+  margin-top: 149px;
+  @include global.mq("sm") {
+    margin-top: 92px;
+  }
+}
+
+.p-reservation-form__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include global.mq("sm") {
+    padding-left: 2px;
+  }
+  .c-title {
+  }
+}
+
+.p-reservation-form-area {
+  margin-top: 67px;
+}
+
+.p-reservation-form {
+}
+
+.p-reservation-contents__items {
+  position: relative;
+  @include global.mq("sm") {
+    padding-top: 1px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    top: 0;
+  }
+}
+.p-reservation-contents__item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 28px 0 29px;
+  position: relative;
+  @include global.mq("sm") {
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 12px;
+    padding: 24px 0 25px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    bottom: 0;
+  }
+}
+.p-reservation-contents__item--required {
+  .p-reservation-contents__item-title label {
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "必須";
+      width: 36px;
+      height: 23px;
+      padding-top: 3px;
+      padding-bottom: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+      right: -52px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: normal;
+      border-radius: 4px;
+      background: global.$color-bg-accent;
+      color: global.$color-accent-contrast;
+      text-align: center;
+      @include global.mq("sm") {
+        right: -48px;
+      }
+    }
+  }
+}
+
+.p-reservation-contents__item-title {
+  width: 240px;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  @include global.mq("sm") {
+    width: 100%;
+  }
+}
+
+.p-reservation-contents__item-input {
+  width: calc(100% - 240px);
+  @include global.mq("sm") {
+    width: 100%;
+  }
+  input {
+    &[type="text"],
+    &[type="email"],
+    &[type="tel"],
+    &[type="date"] {
+      appearance: none;
+      background: #f6f6f6;
+      border-radius: 4px;
+      background-image: none;
+      border: none;
+      // color: inherit;
+      font-family: inherit;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      padding-left: 16px;
+      padding-right: 16px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+}
+
+.p-reservation-contents__item-input {
+  textarea {
+    appearance: none;
+    background-color: #f6f6f6;
+    background-image: none;
+    border-radius: 4px;
+    border: none;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    height: 200px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
+    resize: none;
+    @include global.mq("sm") {
+      height: 159px;
+    }
+
+    &:focus,
+    &:hover {
+      box-shadow: none;
+      outline: none;
+    }
+  }
+}
+
+/*----------------------------------
+    radio btn
+-----------------------------------*/
+.p-reservation-contents__item--radio {
+  padding-top: 41px;
+  padding-bottom: 40px;
+  @include global.mq("sm") {
+    padding-top: 24px;
+    padding-bottom: 25px;
+    gap: 21px;
+  }
+}
+
+.p-reservation-contents__item-input--radio {
+  flex-wrap: wrap;
+  display: flex;
+  column-gap: 32px;
+  @include global.mq("sm") {
+    column-gap: 40px;
+  }
+}
+
+.p-reservation-contents__item-input--radio .wpcf7-radio {
+  flex-wrap: wrap;
+  display: flex;
+  column-gap: 32px;
+  @include global.mq("sm") {
+    column-gap: 40px;
+  }
+}
+
+.p-reservation-contents__item--radio {
+}
+
+.p-reservation-contents__item--required {
+  .p-reservation-contents__item-title--radio label::after {
+    @include global.mq("sm") {
+      right: -52px;
+    }
+  }
+}
+
+.p-reservation-contents__item-input input[type="radio"] {
+  display: none;
+}
+.p-reservation-contents__item-input input[type="radio"] + span {
+  display: inline-block;
+  position: relative;
+  padding-left: 32px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+}
+.p-reservation-contents__item-input input[type="radio"] + span::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background: global.$color-bg-primary;
+  color: global.$color-primary-contrast;
+  border: 1px solid global.$color-primary;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: block;
+}
+.p-reservation-contents__item-input input[type="radio"]:checked + span::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 1px;
+  transform: translateY(-50%);
+  background: global.$color-primary;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  border: 5.5px solid global.$color-primary-contrast;
+  display: block;
+}
+
+/*----------------------------------
+    チェックボックスのフォーム（基本）
+-----------------------------------*/
+.p-reservation-contents__item--checkbox {
+  padding-top: 26px;
+  padding-bottom: 21px;
+  @include global.mq("sm") {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    gap: 21px;
+  }
+}
+
+.p-reservation-contents__item-title--checkbox {
+  margin-top: -2px;
+  label {
+    padding-right: 10px;
+  }
+  span {
+    display: block;
+    color: #888;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: normal;
+    @include global.mq("sm") {
+      margin-top: 1px;
+    }
+  }
+}
+
+.p-reservation-contents__item--required {
+  .p-reservation-contents__item-title--checkbox label::after {
+    @include global.mq("sm") {
+      right: -52px;
+    }
+  }
+}
+
+.p-reservation-contents__item-input--checkbox {
+  flex-wrap: wrap;
+  display: flex;
+  column-gap: 32px;
+  row-gap: 16px;
+  @include global.mq("sm") {
+    column-gap: 24px;
+  }
+}
+.wpcf7-checkbox {
+  flex-wrap: wrap;
+  display: flex;
+  column-gap: 32px;
+  row-gap: 16px;
+  @include global.mq("sm") {
+    column-gap: 24px;
+  }
+}
+
+.wpcf7-list-item {
+  margin: 0;
+}
+.p-reservation-contents__item-input--checkbox input[type="checkbox"] {
+  display: none;
+}
+.p-reservation-contents__item-input--checkbox input[type="checkbox"] + span {
+  display: inline-block;
+  position: relative;
+  padding-left: 32px;
+  cursor: pointer;
+}
+.p-reservation-contents__item-input--checkbox input[type="checkbox"] + span::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background: global.$color-bg-primary;
+  color: global.$color-primary-contrast;
+  border: 1px solid global.$color-primary;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.p-reservation-contents__item-input--checkbox input[type="checkbox"]:checked + span::before {
+  background: global.$color-primary;
+}
+
+.p-reservation-contents__item-input--checkbox input[type="checkbox"]:checked + span::after {
+  position: absolute;
+  content: "";
+  top: 6px;
+  left: 6px;
+  transform: rotate(-45deg);
+  width: 11.607px;
+  height: 6.359px;
+  display: block;
+  border-left: 2px solid global.$color-primary-contrast;
+  border-bottom: 2px solid global.$color-primary-contrast;
+}
+
+/*----------------------------------
+    セレクトボックス（ドロップダウンメニュー）のフォーム（基本）
+-----------------------------------*/
+.p-reservation-contents__item--select {
+  @include global.mq("sm") {
+    padding-top: 24.5px;
+  }
+}
+
+.p-reservation-contents__item--required {
+  .p-reservation-contents__item-title--select label::after {
+    @include global.mq("sm") {
+      right: -52px;
+    }
+  }
+}
+
+.p-reservation-contents__item-input--select {
+  text-align: left;
+}
+.p-reservation-contents__item-input--select label {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+.p-reservation-contents__item-input--select label::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  transform: translateY(-50%);
+  right: 13px;
+  width: 20px;
+  height: 20px;
+  background: url(../img/icon-dropdown-chevron.svg) no-repeat center center/cover;
+  @include global.mq("sm") {
+    right: 10px;
+  }
+}
+
+.p-reservation-contents__item-input--select select {
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 4px;
+  background-image: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #f6f6f6;
+  border: none;
+  &:invalid {
+    color: grey;
+  }
+}
+
+.p-reservation-contents__item-input--select option {
+  appearance: none;
+  border-radius: 4px;
+  background-image: none;
+  border: none;
+  // color: inherit;
+  font-family: inherit;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.p-reservation-contents__item-input--select select::-ms-expand {
+  display: none;
+}
+
+/*----------------------------------
+    datetime
+-----------------------------------*/
+.p-reservation-contents__item-datetime {
+  padding: 28px 0 26px;
+}
+
+.p-reservation-contents__item-input--datetime {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+.p-datetime-input__wrap {
+  
+}
+
+input[type="date"] {
+  position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 1;
+}
+
+
+input[type="date"]::after {
+  content: "";
+  background-image: url(../img/icon-calendar.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0 0;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  @include global.mq("sm") {
+      right: 10px;
+    }
+}
+
+// 最新のsafari用
+_::-webkit-full-page-media, _:future, :root .wpcf7-date {
+  height: 48.6667px;
+}
+// 古いsafari用
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	::i-block-chrome, .wpcf7-date {
+  height: 48.6667px;
+	}
+}
+
+
+
+
+/*----------------------------------
+    textarea
+-----------------------------------*/
+.p-reservation-contents__item-textarea {
+  padding: 13px 0 15px;
+}
+
+/*----------------------------------
+    submit
+-----------------------------------*/
+.p-reservation-contents__submit {
+  margin-top: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input.p-reservation-contents__btn {
+  appearance: none;
+  background-image: none;
+  border: 1px solid global.$color-primary;
+  background: global.$color-primary-contrast;
+  color: global.$color-primary;
+  border-radius: 28px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 1.28px;
+  padding-top: 16px;
+  padding-bottom: 14px;
+  padding-left: 152px;
+  padding-right: 155px;
+  text-decoration: none;
+  transition: all 0.5s;
+  cursor: pointer;
+  min-width: 240px;
+  width: auto;
+  font-family: inherit;
+  @include global.mq("sm") {
+    padding-top: 8px;
+    padding-bottom: 7px;
+    padding-left: 114px;
+    padding-right: 113px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 1.12px;
+  }
+  &:hover,
+  &:focus {
+    outline: none;
+    color: global.$color-text-secondary;
+    background: global.$color-primary;
+  }
+
+  &::-moz-focus-inner {
+    border: none;
+    padding: 0;
+  }
+}
+
+.p-reservation-contents__submit.wpcf7-spinner {
+  display: block;
+}
+
+//バリデーションメッセージ位置調整
+
+.p-reservation-contents__item--required .p-reservation-contents__item-input {
+  position: relative;
+  &::before {
+    content: "必須項目に入力してください。";
+    width: 200px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    bottom: -16px;
+    color: global.$color-accent;
+    background-color: transparent;
+    opacity: 0;
+  }
+}
+
+.p-reservation-contents__item-input {
+  //本来のバリデーションを非表示にします
+  .wpcf7-not-valid-tip {
+    display: none;
+  }
+}
+
+.p-reservation-contents__item--required
+  .p-reservation-contents__item-input:has(.wpcf7-not-valid-tip) {
+  &::before {
+    opacity: 1;
+  }
+}

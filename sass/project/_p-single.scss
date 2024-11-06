@@ -1,0 +1,408 @@
+@use "../global" as global;
+@use "sass:map";
+
+.p-single{
+  padding-bottom: 160px;
+  @include global.mq("sm") {
+    padding-bottom: 98px;
+  }
+}
+
+/*----------------------------------
+    content
+-----------------------------------*/
+.p-single-content {
+  margin-top: 60px;
+  width: 1040px;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  @include global.mq("sm") {
+    width: 460px;
+    max-width: 100%;
+    margin-top: 62px;
+  }
+}
+
+.p-single-inner {
+  display: flex;
+  gap: 30px;
+  @include global.mq("sm") {
+    flex-direction: column;
+  }
+}
+.p-single-primary {
+  width: calc(100% - 300px - 30px);
+  @include global.mq("sm") {
+    width: 100%;
+  }
+}
+
+.entry {
+}
+
+.entry-header {
+}
+
+.entry-title {
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px; /* 142.857% */
+  letter-spacing: 2.24px;
+  @include global.mq("sm") {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px; /* 160% */
+    letter-spacing: 1.6px;
+  }
+}
+
+.entry-meta {
+  margin-top: 19px;
+  display: flex;
+  gap: 32.5px;
+  font-size: 0;
+  align-items: center;
+  @include global.mq("sm") {
+    margin-top: 15px;
+  }
+}
+
+.entry-published {
+  color: global.$color-primary;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  position: relative;
+  padding-left: 20px;
+  &::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background: url(../img/icon-meta-pen-nib.svg) no-repeat center center/cover;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.entry-updated {
+}
+
+.entry-label {
+  background: global.$color-primary;
+  color: global.$color-primary-contrast;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: normal;
+  border-radius: 12px;
+  padding: 6px 12px;
+}
+
+.entry-body {
+  margin-top: 47.5px;
+  @include global.mq("sm") {
+    margin-top: 55.5px;
+  }
+  p {
+    // margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    a {
+      color: global.$color-primary;
+      text-decoration: underline;
+    }
+  }
+
+  p + p {
+    margin-top: 24px;
+  }
+
+  h2 {
+    margin-top: 66px;
+    margin-bottom: 20px;
+    color: global.$color-primary;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1.92px;
+    padding-left: 28px;
+    position: relative;
+    @include global.mq("sm") {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: 1.44px;
+      margin-top: 63.5px;
+      padding-left: 22px;
+    }
+    &::before {
+      content: "";
+      width: 8px;
+      height: 52px;
+      background: global.$color-primary;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      @include global.mq("sm") {
+        width: 6px;
+        height: 40px;
+      }
+    }
+  }
+  h3 {
+    margin-top: 38px;
+    margin-bottom: 20px;
+    color: global.$color-primary;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.6px;
+    padding-bottom: 5.5px;
+    position: relative;
+    @include global.mq("sm") {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: 1.28px;
+      padding-bottom: 4.5px;
+      margin-bottom: 16px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: global.$color-primary;
+      //配置
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  h4 {
+    margin-top: 58px;
+    margin-bottom: 20px;
+    color: global.$color-primary;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.28px;
+    @include global.mq("sm") {
+      margin-top: 56px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: 1.12px;
+    }
+  }
+
+  ul {
+    margin-top: 20px;
+    margin-left: 13px;
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+    justify-content: center;
+    @include global.mq("sm") {
+      margin-top: 13px;
+      margin-left: 19px;
+    }
+    li {
+      p {
+        padding-left: 15px;
+        position: relative;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 30px; /* 187.5% */
+        margin-top: 0;
+        @include global.mq("sm") {
+          padding-left: 11px;
+        }
+
+        &::before {
+          content: "⚫︎";
+          font-size: 7px;
+          line-height: 30px;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}
+
+.entry-img {
+  margin-top: 28px;
+}
+
+.entry-btn-wrap {
+  margin-top: 72px;
+  position: relative;
+  @include global.mq("sm") {
+    margin-top: 37px;
+    gap: 12px;
+  }
+}
+
+.entry-btn-prev {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: calc(50% - 170px);
+  a {
+    border-radius: 4px;
+    background: global.$color-primary;
+    padding-left: 38px;
+    padding-top: 7px;
+    padding-bottom: 8px;
+    padding-right: 16px;
+    color: global.$color-primary-contrast;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    display: block;
+    position: relative;
+    @include global.mq("sm") {
+      padding-left: 37px;
+      padding-right: 14.5px;
+      padding-top: 9px;
+      padding-bottom: 9px;
+    }
+
+    &:hover {
+      &::before {
+        left: 12px;
+        @include global.mq("sm") {
+          left: 11px;
+        }
+      }
+    }
+    &::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      background: url(../img/Icon-arrow-circle-left.svg) no-repeat center center/cover;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: left 0.5s;
+    }
+  }
+}
+
+.entry-btn-archive {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 1px solid global.$color-primary;
+  border-radius: 4px;
+  background: global.$color-primary-contrast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .entry-btn-link {
+    padding: 10px 16.5px 8px;
+    color: global.$color-primary;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    display: inline;
+    @include global.mq("sm") {
+      padding: 10px 19px 8px;
+    }
+  }
+}
+
+.entry-btn-next {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: calc(50% + 85px);
+
+  a {
+    border-radius: 4px;
+    background: global.$color-primary;
+    padding-top: 7px;
+    padding-bottom: 8px;
+    padding-right: 38px;
+    padding-left: 16px;
+    color: global.$color-primary-contrast;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    display: block;
+    position: relative;
+    @include global.mq("sm") {
+      padding-left: 14.5px;
+      padding-right: 37px;
+      padding-top: 9px;
+      padding-bottom: 9px;
+    }
+    &::after {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background: url(../img/Icon-arrow-circle-right.svg) no-repeat center center/cover;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 16px;
+      transition: right 0.5s;
+      @include global.mq("sm") {
+        right: 14px;
+      }
+    }
+    &:hover {
+      &::after {
+        right: 12px;
+        @include global.mq("sm") {
+          right: 11px;
+        }
+      }
+    }
+  }
+}
+
+/*----------------------------------
+    secondary
+-----------------------------------*/
+.p-secondary--single {
+  margin-top: -2px;
+  @include global.mq("sm") {
+    margin-top: 69px;
+  }
+}
+
+.widget_archive--single {
+  margin-top: 39.5px;
+}
+
+.p-widget__title-wrap--single {
+  @include global.mq("sm") {
+    padding-bottom: 10px;
+  }
+}
+
+.p-wpost__tag--single {
+  span {
+    padding-bottom: 3px;
+  }
+}
+
+.widget-archive__list--single {
+  @include global.mq("sm") {
+    margin-top: 16px;
+  }
+}

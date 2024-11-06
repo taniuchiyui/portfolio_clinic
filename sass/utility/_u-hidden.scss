@@ -1,0 +1,23 @@
+@use "../global" as global;
+@use "sass:map";
+
+.u-hidden-xl {
+  @include global.mq("xl") {
+    display: none;
+  }
+}
+.u-hidden-lg {
+  @include global.mq("lg") {
+    display: none;
+  }
+}
+.u-hidden-md {
+  @include global.mq("md") {
+    display: none;
+  }
+}
+.u-hidden-sm {
+  @include global.mq("sm") {
+    display: none;
+  }
+}

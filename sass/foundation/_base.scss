@@ -1,0 +1,20 @@
+@use "../global" as global;
+
+body {
+  color: global.$color-text-primary;
+  font-family: global.$ff-base;
+  font-size: global.$fz-base;
+  font-weight: global.$fw-base;
+  line-height: global.$lh-base;
+  background-color: global.$color-bg-primary;
+}
+
+body:has(#g-nav-hamburger.panelactive) {
+  overflow: hidden;
+}
+
+a[href^="tel:"] {
+    pointer-events: none;
+}
+
+

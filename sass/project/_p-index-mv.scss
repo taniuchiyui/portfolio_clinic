@@ -1,0 +1,378 @@
+@use "../global" as global;
+@use "sass:map";
+
+
+.p-index-mv {
+  padding-top: 40px;
+  position: relative;
+  @include global.mq("sm") {
+    padding-top: 15px;
+  }
+}
+
+.p-index-mv__swiper-container {
+  position: relative;
+  padding-left: 41px;
+  padding-right: 41px;
+  margin-inline: auto;
+  z-index: map.get(global.$layer, "default");
+  container-type: inline-size;
+  container-name: layout;
+  @include global.mq("md") {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @include global.mq("sm") {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.swiper {
+  position: relative;
+  padding-left: 19px;
+  padding-right: 19px;
+  z-index: map.get(global.$layer, "default");
+  
+  @include global.mq("sm") {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height:auto;
+  z-index: map.get(global.$layer, "default");
+}
+
+.p-index-mv__slide {
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: map.get(global.$layer, "default");
+  overflow: hidden;
+  @include global.mq("sm") {
+    border-radius: 8px;
+    height: 447px;
+  }
+}
+
+@container layout (1px <= width < 650px) {
+  .p-index-mv__slide {
+    img {
+      height: 100%;
+      width: auto;
+      max-width: none;
+      object-position: -32px 100%;
+    }
+  }
+}
+@container layout (650px <= width < 767px) {
+  .p-index-mv__slide {
+    img {
+      height: 100%;
+      object-position: 0 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// ============================
+//     pagination について
+// ============================
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 5px;
+  left: -22px;
+  display: flex;
+  flex-direction: column; /* ページネーションを垂直方向に並べる */
+  gap: 10px;
+  @include global.mq("sm") {
+    left: -13.5px;
+    bottom: 17px;
+    gap: 8px;
+  }
+}
+
+//色と大きさ指定
+.swiper-pagination-bullet {
+  opacity: 1;
+  border-radius: 8px;
+  background: #c2c2c2;
+  width: 8px;
+  height: 8px;
+  @include global.mq("sm") {
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+  }
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: global.$color-primary;
+}
+//paginationの余白指定
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 10px;
+}
+//paginationの位置
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// ==============================
+//     navigation について
+// ==============================
+
+.swiper-button-prev {
+  //位置はここで指定
+  left: -28px;
+  top: calc(50% + 24px);
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  @include global.mq("sm") {
+    width: 42px;
+    height: 42px;
+    left: -21px;
+    top: calc(50% + 24.5px);
+  }
+  &::after {
+    content: ""; //デフォルトの削除
+    background: url(../img/icon-swiper-prev.svg) no-repeat center center/cover;
+    width: 60px;
+    height: 60px;
+    @include global.mq("sm") {
+      width: 42px;
+      height: 42px;
+    }
+  }
+}
+
+.swiper-button-next {
+  right: -32.5px;
+  top: calc(50% + 24px);
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  @include global.mq("sm") {
+    width: 42px;
+    height: 42px;
+    right: -20px;
+    top: calc(50% + 24.5px);
+  }
+  &::after {
+    content: ""; //デフォルトの削除
+    background: url(../img/icon-swiper-next.svg) no-repeat center center/cover;
+    width: 60px;
+    height: 60px;
+    @include global.mq("sm") {
+      width: 42px;
+      height: 42px;
+    }
+  }
+}
+
+//mvコピー
+.p-index-mv__copy {
+  position: absolute;
+  left: 120.5px;
+  bottom: 55px;
+  z-index: calc(map.get(global.$layer, "default") + 1);
+  width: 421px;
+
+  @include global.mq("sm") {
+    left: 38px;
+    width: 268px;
+    bottom: 35px;
+  }
+}
+
+//==========================
+// MV 下半分
+//==========================
+
+//ニュース・診療テーブル部分
+
+.p-index-mv__lower {
+  padding-left: 60px;
+  padding-right: 60px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  z-index: calc(map.get(global.$layer, "default") + 1);
+  gap: 56px;
+  @include global.mq("md") {
+    display: block;
+    padding-left: 40px;
+    padding-right: 40px;
+    position: relative; //前面に出すため
+  }
+  @include global.mq("sm") {
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative; //前面に出すため
+  }
+}
+
+.p-index-mv__news {
+  max-width: 541.5px;
+  width: 100%;
+  margin-left: 6px;
+  @include global.mq("sm") {
+    margin-left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.p-index-mv__news-head {
+  padding-top: 17px;
+  padding-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  @include global.mq("sm") {
+    padding-top: 30px;
+    padding-bottom: 3px;
+  }
+}
+
+.p-index-mv__news-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  @include global.mq("sm") {
+    gap: 15px;
+  }
+  p {
+    padding-left: 12px;
+    color: global.$color-text-primary;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    @include global.mq("sm") {
+      letter-spacing: 1.6px;
+      padding-left: 15px;
+    }
+  }
+  span {
+    color: global.$color-primary;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+    @include global.mq("sm") {
+      font-size: 11px;
+      letter-spacing: 1.1px;
+    }
+  }
+}
+
+.p-index-mv__news-link {
+  display: flex;
+  align-items: last baseline;
+  a {
+    display: block;
+    padding-bottom: 6px;
+    color: #888;
+    font-size: 12px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 500;
+    @include global.mq("sm") {
+      font-size: 11px;
+      padding-bottom: 7px;
+    }
+  }
+}
+
+.p-index-mv__list {
+}
+
+.p-index-mv__list-item {
+  border-top: 1px solid global.$color-text-primary;
+  border-bottom: 1px solid global.$color-text-primary;
+  a {
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    padding-left: 12px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    position: relative;
+    transition: color 0.5s;
+    @include global.mq("sm") {
+      padding-top: 10.5px;
+      padding-bottom: 8.5px;
+      padding-left: 6px;
+      gap: 28px;
+    }
+    &::before,
+    &::after {
+      background-repeat: no-repeat;
+      background-size: contain;
+      right: 7px;
+      top: 50%;
+      transform: translateY(-50%);
+      content: "";
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      @include global.mq("sm") {
+        right: 4px;
+        top: calc(50% - 2px);
+        transform: translateY(-50%);
+      }
+    }
+    &::before {
+      background: url(../img/icon-arrow-right-black.svg) no-repeat center center/cover;
+    }
+    &::after {
+      background: url(../img/icon-arrow-right-blue.svg) no-repeat center center/cover;
+      opacity: 0;
+      transition: right 0.5s;
+    }
+    &:hover {
+      color: global.$color-primary;
+      &::before {
+        opacity: 0;
+      }
+      &::after {
+        opacity: 1;
+        right: 0;
+      }
+    }
+  }
+}
+
+.p-index-mv__list-date {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.p-index-mv__list-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.p-index-mv__medical-time {
+  max-width: 483px;
+  width: 100%;
+  margin-top: -35px;
+  z-index: calc(map.get(global.$layer, "default") + 1);
+
+  @include global.mq("md") {
+    max-width: 540px;
+  }
+  @include global.mq("sm") {
+    max-width: 540px;
+    margin-top: -27px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
